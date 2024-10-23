@@ -99,14 +99,14 @@ def search_client():
             found_clients = []
             
             for row in reader:
-                full_name = f"{row[2].lower()} {row[3].lower()}"  # Combine first and last names
+                full_name = f"{row[1].lower()} {row[2].lower()}"  # Combine first and last names
                 if client_name in full_name:
                     found_clients.append(row)
 
         if found_clients:
             result_text.delete(1.0, tk.END)  # Clear previous results
             for client in found_clients:
-                result_text.insert(tk.END, f"Date: {client[0]}\nUnique Id: {client[1]}\nClient: {client[2]} {client[3]}\nDog: {client[4]}\nEmail: {client[5]}\nPhone: {client[6]}\nService: {client[7]}\nGoals: {client[8]}\nCustom Goals: {client[9]}\n\n")
+                result_text.insert(tk.END, f"Date: {client[0]}\nClient: {client[1]} {client[2]}\nDog: {client[3]}\nEmail: {client[4]}\nPhone: {client[5]}\nService: {client[6]}\nGoals: {client[7]}\nCustom Goals: {client[8]}\n\n")
         else:
             result_text.delete(1.0, tk.END)
             result_text.insert(tk.END, "No matching client found.")
